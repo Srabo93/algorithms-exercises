@@ -11,21 +11,32 @@
 */
 
 function bubbleSort(nums) {
-  let swapped = false;
-  let count = 0;
-  do {
-    swapped = false;
-    for (let index = 0; index < nums.length - 1 - count; index++) {
-      if (nums[index] > nums[index + 1]) {
-        let temp = nums[index];
-        nums[index] = nums[index + 1];
-        nums[index + 1] = temp;
-        swapped = true;
+  for (let i = 0; i < nums.length - 1; i++) {
+    for (let j = 0; j < nums.length - 1 - i; j++) {
+      if (nums[j + 1] < nums[j]) {
+        let temp = nums[j];
+        nums[j] = nums[j + 1];
+        nums[j + 1] = temp;
       }
     }
-    count++;
-  } while (swapped);
+  }
   return nums;
+
+  // let swapped = false;
+  // let count = 0;
+  // do {
+  //   swapped = false;
+  //   for (let index = 0; index < nums.length - 1 - count; index++) {
+  //     if (nums[index] > nums[index + 1]) {
+  //       let temp = nums[index];
+  //       nums[index] = nums[index + 1];
+  //       nums[index + 1] = temp;
+  //       swapped = true;
+  //     }
+  //   }
+  //   count++;
+  // } while (swapped);
+  // return nums;
 }
 
 // unit tests
