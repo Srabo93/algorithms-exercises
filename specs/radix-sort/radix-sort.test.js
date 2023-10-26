@@ -10,13 +10,14 @@
 */
 
 function getDigit(number, place, longestNumber) {
-  let string = number.toString();
+  let numberStr = number.toString();
   let size = string.length;
 
   let mod = longestNumber - size;
 
-  return string[place - mod] || 0;
+  return numberStr[place - mod] || 0;
 }
+
 function getLongestNumber(array) {
   let longest = 0;
 
@@ -26,6 +27,7 @@ function getLongestNumber(array) {
   }
   return longest;
 }
+
 function radixSort(array) {
   const longestNumber = getLongestNumber(array);
 
