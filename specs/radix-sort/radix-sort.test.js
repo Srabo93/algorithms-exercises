@@ -11,7 +11,7 @@
 
 function getDigit(number, place, longestNumber) {
   let numberStr = number.toString();
-  let size = string.length;
+  let size = numberStr.length;
 
   let mod = longestNumber - size;
 
