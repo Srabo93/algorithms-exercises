@@ -32,6 +32,7 @@ class LinkedList {
   push(value) {
     const node = new Node(value);
     this.length++;
+
     if (!this.head) {
       this.head = node;
     } else {
@@ -43,37 +44,37 @@ class LinkedList {
     return this.delete(this.length - 1);
   }
   _find(index) {
-    if (index >= this.length) return null;
+    if (index > this.length) return null;
     let current = this.head;
-    for (let i = 0; i < index; i++) {
+
+    for (let i = 0; i <= index - 1; i++) {
       current = current.next;
     }
 
     return current;
   }
   get(index) {
-    const node = this._find(index);
+    let node = this._find(index);
     if (!node) return void 0;
+
     return node.value;
   }
   delete(index) {
     if (index === 0) {
-      const head = this.head;
-      if (head) {
-        this.head = head.next;
+      if (this.head) {
+        this.head = this.head.next;
       } else {
         this.head = null;
-        this.tail = null;
       }
       this.length--;
-      return head.value;
+      return this.head.value;
     }
-
-    const node = this._find(index - 1);
-    const excise = node.next;
-    if (!excise) return null;
+    let node = this._find(index - 1);
+    let excise = node.next;
+    if (!excise) return void null;
     node.next = excise.next;
     if (!node.next) this.tail = node.next;
+
     this.length--;
     return excise.value;
   }
